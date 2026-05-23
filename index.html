@@ -3,42 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edition Industries - Premium</title>
+    <title>Edition Industries - Premium Portfolio</title>
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <!-- Background glowing orbs -->
-    <div class="bg-glow"></div>
+    <!-- Ultra-Premium Ambient Glowing Orbs -->
+    <div class="bg-glow orb-1"></div>
+    <div class="bg-glow orb-2"></div>
 
-    <!-- Main Container -->
+    <!-- Main Container Wrapper -->
     <div class="main-wrapper fade-in">
         
-        <!-- Header -->
-        <header class="slide-up">
+        <!-- Header Section -->
+        <header class="slide-up" style="animation-delay: 0.1s;">
             <h1 class="glow-text">Edition Industries</h1>
             
-            <!-- Typing & Glitch Subtext -->
+            <!-- Modernized Typing & Cyber Glitch Container -->
             <div class="owner-container">
                 <div class="typing-glitch-text">OWNED BY RIYANSHU SINH</div>
             </div>
             
-            <p>Premium Video Editing & Cinematic Post-Production</p>
+            <p class="tagline">Premium Video Editing & Cinematic Post-Production</p>
         </header>
 
         <div class="container">
-            <!-- Links Section -->
-            <div class="links-section slide-up">
+            <!-- Action Links Section -->
+            <div class="links-section slide-up" style="animation-delay: 0.2s;">
                 
-                <!-- Updated Instagram Dropdown -->
+                <!-- Upgraded Smooth Dropdown -->
                 <div class="dropdown-container">
-                    <button type="button" onclick="toggleInstaMenu()" class="btn" id="instaBtn">Instagram ▾</button>
-                    <!-- Instagram Popup Menu -->
+                    <button type="button" onclick="toggleInstaMenu(event)" class="btn btn-dropdown" id="instaBtn">
+                        Instagram <span class="arrow">▾</span>
+                    </button>
+                    <!-- Instagram Dropdown Menu -->
                     <div id="instaMenu" class="insta-menu">
                         <a href="#" target="_blank">👤 Personal ID</a>
                         <a href="#" target="_blank">🎬 Editing Page</a>
                         <a href="#" target="_blank">🎥 Cinematic Page</a>
-                        <a href="#" target="_blank">🎮 Gaming/Esports</a>
+                        <a href="#" target="_blank">🎮 Gaming / Esports</a>
                     </div>
                 </div>
 
@@ -47,39 +54,47 @@
                 <a href="#" class="btn btn-hire">🔥 Hire Me</a>
             </div>
 
-            <!-- Grid Section -->
-            <div class="grid">
-                <div class="card slide-up">
-                    <h2>📅 Upcoming Events</h2>
+            <!-- Content Grid Section -->
+            <div class="grid slide-up" style="animation-delay: 0.3s;">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="icon">📅</span>
+                        <h2>Upcoming Events</h2>
+                    </div>
                     <div class="list-item"><strong>July 15:</strong> New Edition Esports Montage Drop</div>
                     <div class="list-item"><strong>August 5:</strong> Tournament Highlights Release</div>
                 </div>
 
-                <div class="card slide-up">
-                    <h2>📢 Notice & Announcements</h2>
-                    <div class="list-item">🔥 Now accepting freelance cinematic editing projects! DM to book.</div>
-                    <div class="list-item">⚠️ Google Drive link updated with latest high-quality renders.</div>
+                <div class="card">
+                    <div class="card-header">
+                        <span class="icon">📢</span>
+                        <h2>Notice Board</h2>
+                    </div>
+                    <div class="list-item alert-item">🔥 Now accepting freelance cinematic editing projects! DM to book space.</div>
+                    <div class="list-item">⚠️ Google Drive link updated with latest high-quality 4K renders.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer Section -->
         <footer>
             <div class="footer-links">
                 <a onclick="openModal('about')">About Us</a>
+                <span class="dot">•</span>
                 <a onclick="openModal('help')">Help</a>
+                <span class="dot">•</span>
                 <a onclick="openModal('contact')">Contact Us</a>
             </div>
-            <p class="copyright">&copy; 2026 Edition Industries. All rights reserved.</p>
+            <p class="copyright">&copy; 2026 Edition Industries. Created with Precision.</p>
         </footer>
     </div>
 
-    <!-- Hidden Popup Box -->
-    <div id="infoModal" class="modal">
+    <!-- Re-engineered Functional Modal Popups -->
+    <div id="infoModal" class="modal" onclick="handleModalOutsideClick(event)">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modal-title">Title</h2>
-            <p id="modal-body"></p>
+            <div id="modal-body">Body content goes here.</div>
         </div>
     </div>
 
