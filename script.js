@@ -22,6 +22,7 @@ function openModal(type) {
     document.getElementById('modal-body').innerHTML = modalData[type].body;
     
     footerModal.style.display = 'flex';
+    // Adding class with small delay for CSS transition
     setTimeout(() => { footerModal.classList.add('show'); }, 10);
 }
 
@@ -31,34 +32,38 @@ function closeModal() {
     setTimeout(() => { footerModal.style.display = 'none'; }, 300);
 }
 
-// Toggle Instagram Menu Popup
+// Toggle Instagram Menu Popup (Improved)
 function toggleInstaMenu() {
     const menu = document.getElementById('instaMenu');
     
     if (menu.classList.contains('show')) {
         menu.classList.remove('show');
-        setTimeout(() => { menu.style.display = 'none'; }, 300);
+        // Wait for CSS transition before hiding
+        setTimeout(() => { menu.style.display = 'none'; }, 200);
     } else {
         menu.style.display = 'flex';
+        // Small delay to allow CSS opacity transition to trigger
         setTimeout(() => { menu.classList.add('show'); }, 10);
     }
 }
 
-// Global Click Detector (Closes menus/popups if you click outside)
+// Global Click Detector
 window.addEventListener('click', function(event) {
-    // Close Footer Modal
+    const instaBtn = document.getElementById('instaBtn');
+    const instaMenu = document.getElementById('instaMenu');
+    
+    // Close Footer Modal if clicking outside content
     if (event.target == footerModal) {
         closeModal();
     }
     
-    // Close Instagram Dropdown if clicked outside
-    const instaBtn = document.getElementById('instaBtn');
-    const instaMenu = document.getElementById('instaMenu');
-    
-    if (!instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
-        if (instaMenu.classList.contains('show')) {
-            instaMenu.classList.remove('show');
-            setTimeout(() => { instaMenu.style.display = 'none'; }, 300);
+    // Close Instagram Dropdown if clicking outside the button AND menu
+    if (instaBtn && instaMenu) {
+        if (!instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
+            if (instaMenu.classList.contains('show')) {
+                instaMenu.classList.remove('show');
+                setTimeout(() => { instaMenu.style.display = 'none'; }, 200);
+            }
         }
     }
 });
