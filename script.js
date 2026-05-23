@@ -1,3 +1,4 @@
+// Data for Footer Modals
 const modalData = {
     about: { 
         title: "About Edition Industries", 
@@ -13,33 +14,51 @@ const modalData = {
     }
 };
 
-const modal = document.getElementById('infoModal');
-const modalContent = document.querySelector('.modal-content');
+const footerModal = document.getElementById('infoModal');
 
-// Open modal with smooth animation
+// Open Footer Modal
 function openModal(type) {
     document.getElementById('modal-title').innerText = modalData[type].title;
     document.getElementById('modal-body').innerHTML = modalData[type].body;
     
-    modal.style.display = 'flex';
-    // Small delay to allow display block to apply before adding class for animation
-    setTimeout(() => {
-        modal.classList.add('show');
-    }, 10);
+    footerModal.style.display = 'flex';
+    setTimeout(() => { footerModal.classList.add('show'); }, 10);
 }
 
-// Close modal with smooth animation
+// Close Footer Modal
 function closeModal() {
-    modal.classList.remove('show');
-    // Wait for the animation to finish before hiding the element
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
+    footerModal.classList.remove('show');
+    setTimeout(() => { footerModal.style.display = 'none'; }, 300);
 }
 
-// Close when clicking outside
-window.onclick = function(event) {
-    if (event.target == modal) {
+// Toggle Instagram Menu Popup
+function toggleInstaMenu() {
+    const menu = document.getElementById('instaMenu');
+    
+    if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+        setTimeout(() => { menu.style.display = 'none'; }, 300);
+    } else {
+        menu.style.display = 'flex';
+        setTimeout(() => { menu.classList.add('show'); }, 10);
+    }
+}
+
+// Global Click Detector (Closes menus/popups if you click outside)
+window.addEventListener('click', function(event) {
+    // Close Footer Modal
+    if (event.target == footerModal) {
         closeModal();
     }
-};
+    
+    // Close Instagram Dropdown if clicked outside
+    const instaBtn = document.getElementById('instaBtn');
+    const instaMenu = document.getElementById('instaMenu');
+    
+    if (!instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
+        if (instaMenu.classList.contains('show')) {
+            instaMenu.classList.remove('show');
+            setTimeout(() => { instaMenu.style.display = 'none'; }, 300);
+        }
+    }
+});
