@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edition Industries - Premium Portfolio</title>
+    <title>Edition Industries - Premium Post-Production</title>
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for App Logos & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <!-- Ultra-Premium Ambient Glowing Orbs -->
+    <!-- Ambient Glowing Orbs -->
     <div class="bg-glow orb-1"></div>
     <div class="bg-glow orb-2"></div>
 
-    <!-- Main Container Wrapper -->
     <div class="main-wrapper fade-in">
         
         <!-- Header Section -->
         <header class="slide-up" style="animation-delay: 0.1s;">
+            <!-- Title chota kiya gaya hai -->
             <h1 class="glow-text">Edition Industries</h1>
             
-            <!-- Modernized Typing & Cyber Glitch Container -->
+            <!-- Real Glitch Effect Text -->
             <div class="owner-container">
-                <div class="typing-glitch-text">OWNED BY RIYANSHU SINH</div>
+                <div class="glitch-text" data-text="OWNED BY RIYANSHU SINH">OWNED BY RIYANSHU SINH</div>
             </div>
             
             <p class="tagline">Premium Video Editing & Cinematic Post-Production</p>
@@ -35,44 +37,81 @@
             <!-- Action Links Section -->
             <div class="links-section slide-up" style="animation-delay: 0.2s;">
                 
-                <!-- Upgraded Smooth Dropdown -->
+                <!-- Instagram Dropdown (Opens Upwards) -->
                 <div class="dropdown-container">
                     <button type="button" onclick="toggleInstaMenu(event)" class="btn btn-dropdown" id="instaBtn">
-                        Instagram <span class="arrow">▾</span>
+                        <i class="fab fa-instagram icon-space"></i> Instagram <span class="arrow">▴</span>
                     </button>
                     <!-- Instagram Dropdown Menu -->
                     <div id="instaMenu" class="insta-menu">
-                        <a href="#" target="_blank">👤 Personal ID</a>
-                        <a href="#" target="_blank">🎬 Editing Page</a>
-                        <a href="#" target="_blank">🎥 Cinematic Page</a>
-                        <a href="#" target="_blank">🎮 Gaming / Esports</a>
+                        <a href="#" target="_blank"><i class="fas fa-user-circle"></i> Personal ID</a>
+                        <a href="#" target="_blank"><i class="fas fa-cut"></i> Editing Page</a>
+                        <a href="#" target="_blank"><i class="fas fa-film"></i> Cinematic Page</a>
+                        <a href="#" target="_blank"><i class="fas fa-gamepad"></i> Gaming / Esports</a>
                     </div>
                 </div>
 
-                <a href="#" target="_blank" class="btn">Facebook</a>
-                <a href="#" target="_blank" class="btn btn-drive">🎬 Drive Portfolio</a>
-                <a href="#" class="btn btn-hire">🔥 Hire Me</a>
+                <a href="#" target="_blank" class="btn"><i class="fab fa-facebook icon-space"></i> Facebook</a>
+                <a href="#" target="_blank" class="btn btn-drive"><i class="fab fa-google-drive icon-space"></i> Drive Portfolio</a>
+                <a href="#" class="btn btn-hire"><i class="fas fa-fire icon-space"></i> Hire Me</a>
             </div>
 
             <!-- Content Grid Section -->
             <div class="grid slide-up" style="animation-delay: 0.3s;">
+                
+                <!-- Card 1: Core Services (NEW) -->
                 <div class="card">
                     <div class="card-header">
-                        <span class="icon">📅</span>
-                        <h2>Upcoming Events</h2>
+                        <i class="fas fa-layer-group card-icon text-primary"></i>
+                        <h2>Core Services</h2>
+                    </div>
+                    <div class="list-item"><i class="fas fa-film text-primary icon-space"></i> Cinematic Post-Production</div>
+                    <div class="list-item"><i class="fas fa-gamepad text-primary icon-space"></i> Esports & Gaming Montages</div>
+                    <div class="list-item"><i class="fas fa-palette text-primary icon-space"></i> Advanced Color Grading</div>
+                    <div class="list-item"><i class="fas fa-magic text-primary icon-space"></i> VFX & Motion Graphics</div>
+                </div>
+
+                <!-- Card 2: Software Arsenal (NEW) -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-laptop-code card-icon text-secondary"></i>
+                        <h2>Software Arsenal</h2>
+                    </div>
+                    <div class="software-grid">
+                        <div class="software-item"><i class="fas fa-video"></i> Adobe Premiere Pro</div>
+                        <div class="software-item"><i class="fas fa-meteor"></i> After Effects</div>
+                        <div class="software-item"><i class="fas fa-adjust"></i> DaVinci Resolve</div>
+                        <div class="software-item"><i class="fas fa-cube"></i> Blender 3D</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Certifications (NEW - With Image) -->
+                <div class="card cert-card">
+                    <div class="card-header">
+                        <i class="fas fa-certificate card-icon text-gold"></i>
+                        <h2>Certifications & Awards</h2>
+                    </div>
+                    <!-- Yaha 'src' me apni image ka link daal dena -->
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800&h=400" alt="Masterclass Certification" class="cert-img">
+                    <div class="list-item"><strong>Advanced Cinematic Editing Masterclass</strong><br>Certified specialist in timeline management, pacing, and Hollywood-grade color correction.</div>
+                </div>
+
+                <!-- Card 4: Upcoming Events (Existing) -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-calendar-alt card-icon text-primary"></i>
+                        <h2>Upcoming Drops</h2>
                     </div>
                     <div class="list-item"><strong>July 15:</strong> New Edition Esports Montage Drop</div>
                     <div class="list-item"><strong>August 5:</strong> Tournament Highlights Release</div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <span class="icon">📢</span>
+                    
+                    <div class="card-header" style="margin-top: 20px;">
+                        <i class="fas fa-bullhorn card-icon text-primary"></i>
                         <h2>Notice Board</h2>
                     </div>
-                    <div class="list-item alert-item">🔥 Now accepting freelance cinematic editing projects! DM to book space.</div>
-                    <div class="list-item">⚠️ Google Drive link updated with latest high-quality 4K renders.</div>
+                    <div class="list-item alert-item"><i class="fas fa-exclamation-circle icon-space"></i> Accepting freelance projects! DM to book.</div>
                 </div>
+
             </div>
         </div>
 
@@ -89,7 +128,7 @@
         </footer>
     </div>
 
-    <!-- Re-engineered Functional Modal Popups -->
+    <!-- Modals -->
     <div id="infoModal" class="modal" onclick="handleModalOutsideClick(event)">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
