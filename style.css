@@ -125,6 +125,14 @@ header { padding: 4rem 2rem 1.5rem; text-align: center; }
     .cert-content { flex: 1; padding-right: 20px; }
     .cert-image-container { flex: 1; max-width: 400px; }
 }
+/*extra added*/
+.cert-card { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 20px; }
+.cert-img { width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); object-fit: cover; }
+@media(min-width: 768px) {
+    .cert-card { flex-direction: row; align-items: center; justify-content: space-between; }
+    .cert-content { flex: 1; padding-right: 20px; }
+    .cert-image-container { flex: 1; max-width: 400px; }
+}
 
 /* Scroll Fade Animation Engine */
 .scroll-fade {
