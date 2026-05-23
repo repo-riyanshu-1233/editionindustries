@@ -1,68 +1,49 @@
 :root {
     --pro-red: #e63946;
     --bg-dark: #0a0a0c;
-    --card-surface: #121216;
     --text-main: #f1faee;
 }
 
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-main);
 }
 
+.main-wrapper { padding: 20px; }
+
 .logo-text {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
-    margin: 2rem 0 0 0;
     text-align: center;
+    font-size: 2.5rem;
     text-transform: uppercase;
     color: #fff;
-    text-shadow: 0 0 15px rgba(230, 57, 70, 0.5);
+    text-shadow: 0 0 10px rgba(230, 57, 70, 0.5);
+    margin-bottom: 5px;
 }
 
-/* Z-INDEX FIX: Dropdown container needs high z-index */
-.dropdown-container { position: relative; z-index: 1000; }
-
-.insta-menu {
-    display: none;
-    position: absolute;
-    top: 100%; left: 0;
-    background: #18181d;
-    border: 1px solid #333;
-    border-radius: 8px;
-    width: 200px;
-    padding: 10px 0;
-    margin-top: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.typing-glitch-text {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
 }
 
-.insta-menu.show { display: block; }
-
-.insta-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.3s;
+.links-section {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
-.insta-menu a:hover { color: var(--pro-red); background: #222; }
-
-/* Professional Grid */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 0 auto; }
-
-.card {
-    background: var(--card-surface);
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #222;
-}
+/* Z-INDEX FIX: Dropdown Menu */
+.dropdown-container { position: relative; z-index: 999; }
 
 .btn {
     padding: 10px 20px;
-    background: transparent;
+    background: #1a1a1e;
     border: 1px solid #333;
     color: white;
     border-radius: 5px;
@@ -72,11 +53,41 @@ body {
 
 .btn:hover { border-color: var(--pro-red); }
 
-/* Glitch Typing Text */
-.typing-glitch-text {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #666;
-    letter-spacing: 3px;
-    margin-bottom: 2rem;
+.insta-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background: #18181d;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 180px;
+    padding: 5px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.insta-menu.show { display: block; }
+
+.insta-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.insta-menu a:hover { background: #222; color: var(--pro-red); }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #121216;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #222;
 }
