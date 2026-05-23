@@ -1,4 +1,4 @@
-// Strict Structure Data Architecture for Footer Modals
+// Footer Modal Data Architecture
 const modalData = {
     about: { 
         title: "About Edition Industries", 
@@ -18,23 +18,19 @@ const infoModal = document.getElementById('infoModal');
 const instaMenu = document.getElementById('instaMenu');
 const instaBtn = document.getElementById('instaBtn');
 
-// Open Modal Engine
+// Open Modal System
 function openModal(type) {
     if (!modalData[type]) return;
-    
     document.getElementById('modal-title').innerText = modalData[type].title;
     document.getElementById('modal-body').innerHTML = modalData[type].body;
-    
     infoModal.style.display = 'flex';
-    // Single clean reflow call to force rendering layout before class execution
     infoModal.offsetHeight; 
     infoModal.classList.add('show');
 }
 
-// Close Modal Engine
+// Close Modal System
 function closeModal() {
     infoModal.classList.remove('show');
-    // Pure CSS transition synchronous cleanup
     const handleTransitionEnd = () => {
         if (!infoModal.classList.contains('show')) {
             infoModal.style.display = 'none';
@@ -44,35 +40,28 @@ function closeModal() {
     infoModal.addEventListener('transitionend', handleTransitionEnd);
 }
 
-// Structural Outside Modal Click Interceptor
 function handleModalOutsideClick(event) {
-    if (event.target === infoModal) {
-        closeModal();
-    }
+    if (event.target === infoModal) closeModal();
 }
 
-// Streamlined Fast Instagram Menu Dropdown Engine
+// Instagram Dropdown System (Upward Logic)
 function toggleInstaMenu(event) {
-    event.stopPropagation(); // Global trigger collapse protect
+    event.stopPropagation(); 
     
-    const isShowing = instaMenu.classList.contains('show');
-    
-    if (isShowing) {
+    if (instaMenu.classList.contains('show')) {
         closeInstaMenu();
     } else {
         instaBtn.classList.add('active');
         instaMenu.style.display = 'flex';
-        instaMenu.offsetHeight; // Render forcing engine
+        instaMenu.offsetHeight; 
         instaMenu.classList.add('show');
     }
 }
 
 function closeInstaMenu() {
     if (!instaMenu.classList.contains('show')) return;
-    
     instaBtn.classList.remove('active');
     instaMenu.classList.remove('show');
-    
     const handleDropdownTransitionEnd = () => {
         if (!instaMenu.classList.contains('show')) {
             instaMenu.style.display = 'none';
@@ -82,9 +71,8 @@ function closeInstaMenu() {
     instaMenu.addEventListener('transitionend', handleDropdownTransitionEnd);
 }
 
-// Unitary Context Event Listener for Global Clicks
+// Global Click Listener (Close dropdown on outside click)
 window.addEventListener('click', function(event) {
-    // Structural cleanup if dropdown loses active system focus
     if (instaMenu && !instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
         closeInstaMenu();
     }
