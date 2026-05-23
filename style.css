@@ -1,126 +1,366 @@
-/* Core Variables - Professional Palette */
+/* Premium Cyberpunk / Cinematic Color Palette */
 :root {
     --primary: #ff0055;
-    --primary-glow: rgba(255, 0, 85, 0.7);
-    --cyan-glow: #00e5ff;
-    --bg-dark: #050508;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --text: #ffffff;
+    --primary-glow: rgba(255, 0, 85, 0.6);
+    --secondary: #00e5ff;
+    --secondary-glow: rgba(0, 229, 255, 0.4);
+    --bg-dark: #030306;
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --text-main: #ffffff;
+    --text-muted: #8e8e9c;
 }
 
+/* Base Body Styling */
 body {
     margin: 0; 
-    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-dark); 
-    color: var(--text);
+    color: var(--text-main);
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
-/* Background Animated Glow Effect */
+/* Ambient Moving Background Orbs */
 .bg-glow {
     position: fixed;
-    top: -100px; left: -100px;
-    width: 400px; height: 400px;
-    background: rgba(255, 0, 85, 0.15);
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(140px);
     z-index: -1;
-    animation: drift 10s infinite alternate ease-in-out;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.orb-1 {
+    top: -10%; left: -10%;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    animation: float1 15s infinite alternate ease-in-out;
+}
+.orb-2 {
+    bottom: -10%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+    animation: float2 20s infinite alternate ease-in-out;
 }
 
-@keyframes drift {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(100px, 100px); }
+@keyframes float1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(80px, 50px) scale(1.1); }
+}
+@keyframes float2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-100px, -60px) scale(1.2); }
 }
 
-.main-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+/* Master Layout Wrapper */
+.main-wrapper { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+}
 
-/* Header - Compact & Professional */
-header { padding: 2rem 2rem 1rem; text-align: center; }
+/* Header UI Elements */
+header { 
+    padding: 3.5rem 2rem 1.5rem; 
+    text-align: center; 
+}
 
 .glow-text { 
     margin: 0; 
-    font-size: 2.8rem; /* Chota kiya */
+    font-family: 'Syne', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 800;
     text-transform: uppercase; 
-    letter-spacing: 2px; 
-    color: #ffffff;
-    text-shadow: 0 0 10px var(--primary-glow), 0 0 20px var(--primary-glow);
+    letter-spacing: -1px; 
+    background: linear-gradient(135deg, #fff 30%, #ffc0d3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px var(--primary-glow));
 }
 
-/* Typing & Glitch Effect */
-.owner-container { display: flex; justify-content: center; margin-top: 10px; }
+.tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-top: 15px;
+}
+
+/* Typing & Subtle Cyber Glitch Mechanics */
+.owner-container { 
+    display: flex; 
+    justify-content: center; 
+    margin-top: 12px; 
+}
 
 .typing-glitch-text {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: #888;
-    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--text-muted);
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     border-right: 2px solid var(--primary);
     max-width: 0;
     animation: 
-        typewriter 2.5s steps(30) 0.5s forwards, 
-        blinkCursor 0.75s step-end infinite,
-        cyberGlitch 4s infinite 3.5s; 
+        typewriter 2.2s steps(25) 0.4s forwards, 
+        blinkCursor 0.75s step-end infinite;
 }
 
-@keyframes typewriter { from { max-width: 0; } to { max-width: 400px; } }
+@keyframes typewriter { from { max-width: 0; } to { max-width: 300px; } }
 @keyframes blinkCursor { from, to { border-color: transparent; } 50% { border-color: var(--primary); } }
-@keyframes cyberGlitch {
-    0%, 100% { transform: translate(0); }
-    2% { transform: translate(-2px, 1px); }
-    4% { transform: translate(2px, -1px); }
-    6% { transform: translate(0); }
+
+/* Main Dynamic Responsive Container */
+.container { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    padding: 1.5rem; 
+    flex: 1; 
+    width: 100%; 
+    box-sizing: border-box; 
 }
 
-/* Container */
-.container { max-width: 1000px; margin: 0 auto; padding: 2rem; flex: 1; width: 100%; box-sizing: border-box; }
-
-/* Buttons & Links */
-.links-section { display: flex; justify-content: center; gap: 15px; margin-bottom: 3rem; flex-wrap: wrap; }
+/* Links & Interactive Action Buttons */
+.links-section { 
+    display: flex; 
+    justify-content: center; 
+    gap: 16px; 
+    margin-bottom: 3.5rem; 
+    flex-wrap: wrap; 
+}
 
 .btn {
-    padding: 10px 22px; text-decoration: none; color: white;
-    background: rgba(255,255,255,0.03); border-radius: 6px; 
-    transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.85rem; cursor: pointer;
+    padding: 12px 26px; 
+    text-decoration: none; 
+    color: rgba(255, 255, 255, 0.9);
+    background: var(--card-bg); 
+    border-radius: 8px; 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); 
+    border: 1px solid var(--card-border);
+    font-size: 0.9rem; 
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.btn:hover { background: rgba(255,255,255,0.08); border-color: var(--primary); }
+.btn:hover { 
+    background: rgba(255, 255, 255, 0.08); 
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-/* FIX: Instagram Popup Menu (Z-index high rakha hai) */
-.dropdown-container { position: relative; display: inline-block; z-index: 9999; }
+.btn-dropdown .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.btn-dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.btn-drive:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+.btn-hire {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+.btn-hire:hover {
+    background: #ff2270;
+    border-color: #ff2270;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+}
+
+/* Upgraded Smooth Height Dropdown Box */
+.dropdown-container { position: relative; display: inline-block; }
 
 .insta-menu {
-    display: none; position: absolute;
-    top: 120%; left: 50%; transform: translateX(-50%);
-    background: #0d0d12; border: 1px solid #333;
-    border-radius: 8px; min-width: 200px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    z-index: 9999; flex-direction: column; opacity: 0;
-    transition: opacity 0.2s ease;
+    display: none; 
+    position: absolute;
+    top: 125%; left: 50%; 
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(13, 13, 18, 0.95); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px; 
+    min-width: 220px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    z-index: 100; 
+    flex-direction: column; 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.insta-menu.show { display: flex; opacity: 1; }
+.insta-menu.show { 
+    display: flex; 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
 
 .insta-menu a {
-    color: #fff; padding: 12px 20px; text-decoration: none;
-    font-size: 0.9rem; border-bottom: 1px solid #1a1a1a;
-    transition: 0.3s;
+    color: rgba(255,255,255,0.8); 
+    padding: 14px 20px; 
+    text-decoration: none;
+    font-size: 0.9rem; 
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    transition: all 0.2s;
+}
+.insta-menu a:last-child { border-bottom: none; }
+
+.insta-menu a:hover { 
+    background: rgba(255, 0, 85, 0.1); 
+    color: var(--primary); 
+    padding-left: 24px;
 }
 
-.insta-menu a:hover { background: #1a1a1a; color: var(--primary); }
-
-/* Grid Cards */
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media(max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+/* Grid & Adaptive Cards */
+.grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px; 
+}
+@media(max-width: 768px) { 
+    .grid { grid-template-columns: 1fr; gap: 16px; } 
+}
 
 .card {
-    background: #0d0d12; padding: 25px; border-radius: 12px;
-    border: 1px solid #1a1a1a; transition: 0.3s;
+    background: rgba(13, 13, 18, 0.4); 
+    padding: 28px; 
+    border-radius: 14px;
+    border: 1px solid var(--card-border); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: border-color 0.3s, transform 0.3s;
 }
-.card:hover { border-color: #333; }
+.card:hover { 
+    border-color: rgba(255, 255, 255, 0.15); 
+    transform: translateY(-2px);
+}
 
-/* Modal & Footer same as before, just kept clean */
-footer { text-align: center; padding: 2rem; color: #444; font-size: 0.8rem; }
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.card h2 { 
+    margin: 0; 
+    font-family: 'Syne', sans-serif;
+    font-size: 1.25rem; 
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.list-item {
+    font-size: 0.9rem;
+    color: #b3b3c2;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.list-item:last-child { border-bottom: none; }
+.list-item strong { color: #fff; font-weight: 600; }
+
+.alert-item {
+    color: #ffb3c6;
+}
+
+/* FIXED & COMPLETED: Modal Popup Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(3, 3, 6, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.modal.show {
+    opacity: 1;
+}
+
+.modal-content {
+    background: #0f0f14;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.modal-content p, #modal-body {
+    color: #b3b3c2;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.close {
+    position: absolute;
+    top: 20px; right: 20px;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close:hover { color: #fff; }
+
+/* Footer Clean Architecture */
+footer { 
+    text-align: center; 
+    padding: 3rem 2rem 2rem; 
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-links .dot { color: rgba(255, 255, 255, 0.1); font-size: 0.8rem; }
+
+.copyright { color: #44444f; font-size: 0.75rem; margin: 0; margin-top: 8px; }
+
+/* Entry Engineering Animations */
+.fade-in { animation: fadeIn 0.8s ease forwards; }
+.slide-up { opacity: 0; animation: slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
