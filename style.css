@@ -132,7 +132,7 @@ header p { color: #888; letter-spacing: 1.5px; font-size: 1.1rem; margin-top: 5p
     background: rgba(10, 10, 15, 0.95); border: 1px solid var(--primary);
     border-radius: 12px; min-width: 220px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 15px rgba(255,0,85,0.2);
-    z-index: 100; flex-direction: column; overflow: hidden;
+    z-index: 1000; flex-direction: column; overflow: hidden;
     backdrop-filter: blur(15px); opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
