@@ -8,30 +8,56 @@
 </head>
 <body>
     
+    <!-- Background glowing orbs -->
     <div class="bg-glow"></div>
 
+    <!-- Main Container with load animation -->
     <div class="main-wrapper fade-in">
         
+        <!-- Header -->
         <header class="slide-up" style="animation-delay: 0.1s;">
-            <h1>Edition Industries</h1>
+            <!-- Glowing Heading -->
+            <h1 class="glow-text">Edition Industries</h1>
+            
+            <!-- Typing & Glitch Subtext -->
+            <div class="owner-container">
+                <div class="typing-glitch-text">OWNED BY RIYANSHU SINH</div>
+            </div>
+            
             <p>Premium Video Editing & Cinematic Post-Production</p>
         </header>
 
         <div class="container">
+            <!-- Links Section -->
             <div class="links-section slide-up" style="animation-delay: 0.3s;">
-                <a href="YOUR_INSTA_LINK" target="_blank" class="btn">Instagram</a>
+                
+                <!-- NEW: Instagram Dropdown Wrapper -->
+                <div class="dropdown-container">
+                    <button onclick="toggleInstaMenu()" class="btn" id="instaBtn">Instagram ▾</button>
+                    <!-- Instagram Popup Menu -->
+                    <div id="instaMenu" class="insta-menu">
+                        <a href="LINK_DALO" target="_blank">👤 Personal ID</a>
+                        <a href="LINK_DALO" target="_blank">🎬 Editing Page</a>
+                        <a href="LINK_DALO" target="_blank">🎥 Cinematic Page</a>
+                        <a href="LINK_DALO" target="_blank">🎮 Gaming/Esports</a>
+                    </div>
+                </div>
+
                 <a href="YOUR_FB_LINK" target="_blank" class="btn">Facebook</a>
                 <a href="YOUR_DRIVE_LINK" target="_blank" class="btn btn-drive">🎬 Drive Portfolio</a>
                 <a href="YOUR_CONTACT_LINK" class="btn btn-hire">🔥 Hire Me</a>
             </div>
 
+            <!-- 2 Boxes Section (Grid) -->
             <div class="grid">
+                <!-- Box 1 -->
                 <div class="card slide-up" style="animation-delay: 0.5s;">
                     <h2>📅 Upcoming Events</h2>
                     <div class="list-item"><strong>July 15:</strong> New Edition Esports Montage Drop</div>
                     <div class="list-item"><strong>August 5:</strong> Tournament Highlights Release</div>
                 </div>
 
+                <!-- Box 2 -->
                 <div class="card slide-up" style="animation-delay: 0.7s;">
                     <h2>📢 Notice & Announcements</h2>
                     <div class="list-item">🔥 Now accepting freelance cinematic editing projects! DM to book.</div>
@@ -40,6 +66,7 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <footer class="fade-in" style="animation-delay: 1s;">
             <div class="footer-links">
                 <a onclick="openModal('about')">About Us</a>
@@ -50,6 +77,7 @@
         </footer>
     </div>
 
+    <!-- Hidden Popup Box for Footer -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
