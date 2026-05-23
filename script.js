@@ -18,6 +18,30 @@ const infoModal = document.getElementById('infoModal');
 const instaMenu = document.getElementById('instaMenu');
 const instaBtn = document.getElementById('instaBtn');
 
+// --- SCROLL ANIMATION OBSERVER ---
+document.addEventListener("DOMContentLoaded", function() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // Element ka 15% hissa screen pe aate hi animate hoga
+    };
+
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                // Ek baar animate hone ke baad observe karna band kare (taaki repeat na ho)
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Sabhi .scroll-fade elements par observer lagao
+    document.querySelectorAll('.scroll-fade').forEach(el => {
+        scrollObserver.observe(el);
+    });
+});
+
 // Open Modal System
 function openModal(type) {
     if (!modalData[type]) return;
