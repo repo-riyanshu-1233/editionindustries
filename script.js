@@ -2,15 +2,15 @@
 const modalData = {
     about: { 
         title: "About Edition Industries", 
-        body: "We are a premier video editing entity specializing in high-end, cinematic post-production, dynamic esports montages, and tailored brand commercials. We convert raw frame rates into captivating digital experiences." 
+        body: "We are a premier video editing entity specializing in high-end, cinematic post-production, reel creation long video edit and video shoot with experience of over 5 years in this field. We convert raw frame rates into memorable experiences." 
     },
     help: { 
         title: "Help & Support System", 
-        body: "Encountering latency or permission issues with our asset Google Drive? Ensure you are logged into an authorized Google workspace account. For direct workflow deployment or asset queries, ping our operational channel on Instagram." 
+        body: "Encountering latency or permission issues with our asset Google Drive? Ensure you are logged into an authorized Google workspace or you can dm us on Instagram at @riyanshu_1233 or mail us at editionindustries@gmail.com " 
     },
     contact: { 
         title: "Initiate Project Booking", 
-        body: "<strong>Corporate Email:</strong> contact@editionindustries.com<br><br><strong>Direct Channel:</strong> Message us via Instagram DM for swift technical consults and slot pricing inquiries." 
+        body: "<strong>Corporate Email:</strong> editionindustries@gmail.com <br><br><strong>Direct Channel:</strong> Message us via Instagram DM ( @editionindustries ) for swift technical consults and pricing inquiries." 
     }
 };
 
@@ -18,19 +18,18 @@ const infoModal = document.getElementById('infoModal');
 const instaMenu = document.getElementById('instaMenu');
 const instaBtn = document.getElementById('instaBtn');
 
-// --- SCROLL ANIMATION OBSERVER ---
 document.addEventListener("DOMContentLoaded", function() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15 // Element ka 15% hissa screen pe aate hi animate hoga
+        threshold: 0.15 
     };
 
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('in-view');
-                // Ek baar animate hone ke baad observe karna band kare (taaki repeat na ho)
+           
                 observer.unobserve(entry.target);
             }
         });
