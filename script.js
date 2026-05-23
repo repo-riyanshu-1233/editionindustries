@@ -1,69 +1,91 @@
-// Data for Footer Modals
+// Strict Structure Data Architecture for Footer Modals
 const modalData = {
     about: { 
         title: "About Edition Industries", 
-        body: "We are a premier video editing company specializing in high-quality, cinematic edits, esports montages, and dynamic brand promotions. We bring raw footage to life." 
+        body: "We are a premier video editing entity specializing in high-end, cinematic post-production, dynamic esports montages, and tailored brand commercials. We convert raw frame rates into captivating digital experiences." 
     },
     help: { 
-        title: "Help & Support", 
-        body: "Need help accessing the Google Drive portfolio or downloading project files? Make sure you are logged into your Google account. If issues persist, message us on Instagram." 
+        title: "Help & Support System", 
+        body: "Encountering latency or permission issues with our asset Google Drive? Ensure you are logged into an authorized Google workspace account. For direct workflow deployment or asset queries, ping our operational channel on Instagram." 
     },
     contact: { 
-        title: "Contact Us", 
-        body: "<strong>Email:</strong> contact@editionindustries.com<br><br><strong>Instagram:</strong> Direct Message us for the fastest response regarding project bookings." 
+        title: "Initiate Project Booking", 
+        body: "<strong>Corporate Email:</strong> contact@editionindustries.com<br><br><strong>Direct Channel:</strong> Message us via Instagram DM for swift technical consults and slot pricing inquiries." 
     }
 };
 
-const footerModal = document.getElementById('infoModal');
+const infoModal = document.getElementById('infoModal');
+const instaMenu = document.getElementById('instaMenu');
+const instaBtn = document.getElementById('instaBtn');
 
-// Open Footer Modal
+// Open Modal Engine
 function openModal(type) {
+    if (!modalData[type]) return;
+    
     document.getElementById('modal-title').innerText = modalData[type].title;
     document.getElementById('modal-body').innerHTML = modalData[type].body;
     
-    footerModal.style.display = 'flex';
-    // Adding class with small delay for CSS transition
-    setTimeout(() => { footerModal.classList.add('show'); }, 10);
+    infoModal.style.display = 'flex';
+    // Single clean reflow call to force rendering layout before class execution
+    infoModal.offsetHeight; 
+    infoModal.classList.add('show');
 }
 
-// Close Footer Modal
+// Close Modal Engine
 function closeModal() {
-    footerModal.classList.remove('show');
-    setTimeout(() => { footerModal.style.display = 'none'; }, 300);
+    infoModal.classList.remove('show');
+    // Pure CSS transition synchronous cleanup
+    const handleTransitionEnd = () => {
+        if (!infoModal.classList.contains('show')) {
+            infoModal.style.display = 'none';
+        }
+        infoModal.removeEventListener('transitionend', handleTransitionEnd);
+    };
+    infoModal.addEventListener('transitionend', handleTransitionEnd);
 }
 
-// Toggle Instagram Menu Popup (Improved)
-function toggleInstaMenu() {
-    const menu = document.getElementById('instaMenu');
-    
-    if (menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        // Wait for CSS transition before hiding
-        setTimeout(() => { menu.style.display = 'none'; }, 200);
-    } else {
-        menu.style.display = 'flex';
-        // Small delay to allow CSS opacity transition to trigger
-        setTimeout(() => { menu.classList.add('show'); }, 10);
-    }
-}
-
-// Global Click Detector
-window.addEventListener('click', function(event) {
-    const instaBtn = document.getElementById('instaBtn');
-    const instaMenu = document.getElementById('instaMenu');
-    
-    // Close Footer Modal if clicking outside content
-    if (event.target == footerModal) {
+// Structural Outside Modal Click Interceptor
+function handleModalOutsideClick(event) {
+    if (event.target === infoModal) {
         closeModal();
     }
+}
+
+// Streamlined Fast Instagram Menu Dropdown Engine
+function toggleInstaMenu(event) {
+    event.stopPropagation(); // Global trigger collapse protect
     
-    // Close Instagram Dropdown if clicking outside the button AND menu
-    if (instaBtn && instaMenu) {
-        if (!instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
-            if (instaMenu.classList.contains('show')) {
-                instaMenu.classList.remove('show');
-                setTimeout(() => { instaMenu.style.display = 'none'; }, 200);
-            }
+    const isShowing = instaMenu.classList.contains('show');
+    
+    if (isShowing) {
+        closeInstaMenu();
+    } else {
+        instaBtn.classList.add('active');
+        instaMenu.style.display = 'flex';
+        instaMenu.offsetHeight; // Render forcing engine
+        instaMenu.classList.add('show');
+    }
+}
+
+function closeInstaMenu() {
+    if (!instaMenu.classList.contains('show')) return;
+    
+    instaBtn.classList.remove('active');
+    instaMenu.classList.remove('show');
+    
+    const handleDropdownTransitionEnd = () => {
+        if (!instaMenu.classList.contains('show')) {
+            instaMenu.style.display = 'none';
         }
+        instaMenu.removeEventListener('transitionend', handleDropdownTransitionEnd);
+    };
+    instaMenu.addEventListener('transitionend', handleDropdownTransitionEnd);
+}
+
+// Unitary Context Event Listener for Global Clicks
+window.addEventListener('click', function(event) {
+    // Structural cleanup if dropdown loses active system focus
+    if (instaMenu && !instaBtn.contains(event.target) && !instaMenu.contains(event.target)) {
+        closeInstaMenu();
     }
 });
