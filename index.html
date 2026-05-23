@@ -11,12 +11,11 @@
     <!-- Background glowing orbs -->
     <div class="bg-glow"></div>
 
-    <!-- Main Container with load animation -->
+    <!-- Main Container -->
     <div class="main-wrapper fade-in">
         
         <!-- Header -->
-        <header class="slide-up" style="animation-delay: 0.1s;">
-            <!-- Glowing Heading -->
+        <header class="slide-up">
             <h1 class="glow-text">Edition Industries</h1>
             
             <!-- Typing & Glitch Subtext -->
@@ -29,36 +28,34 @@
 
         <div class="container">
             <!-- Links Section -->
-            <div class="links-section slide-up" style="animation-delay: 0.3s;">
+            <div class="links-section slide-up">
                 
-                <!-- NEW: Instagram Dropdown Wrapper -->
+                <!-- Updated Instagram Dropdown -->
                 <div class="dropdown-container">
-                    <button onclick="toggleInstaMenu()" class="btn" id="instaBtn">Instagram ▾</button>
+                    <button type="button" onclick="toggleInstaMenu()" class="btn" id="instaBtn">Instagram ▾</button>
                     <!-- Instagram Popup Menu -->
                     <div id="instaMenu" class="insta-menu">
-                        <a href="LINK_DALO" target="_blank">👤 Personal ID</a>
-                        <a href="LINK_DALO" target="_blank">🎬 Editing Page</a>
-                        <a href="LINK_DALO" target="_blank">🎥 Cinematic Page</a>
-                        <a href="LINK_DALO" target="_blank">🎮 Gaming/Esports</a>
+                        <a href="#" target="_blank">👤 Personal ID</a>
+                        <a href="#" target="_blank">🎬 Editing Page</a>
+                        <a href="#" target="_blank">🎥 Cinematic Page</a>
+                        <a href="#" target="_blank">🎮 Gaming/Esports</a>
                     </div>
                 </div>
 
-                <a href="YOUR_FB_LINK" target="_blank" class="btn">Facebook</a>
-                <a href="YOUR_DRIVE_LINK" target="_blank" class="btn btn-drive">🎬 Drive Portfolio</a>
-                <a href="YOUR_CONTACT_LINK" class="btn btn-hire">🔥 Hire Me</a>
+                <a href="#" target="_blank" class="btn">Facebook</a>
+                <a href="#" target="_blank" class="btn btn-drive">🎬 Drive Portfolio</a>
+                <a href="#" class="btn btn-hire">🔥 Hire Me</a>
             </div>
 
-            <!-- 2 Boxes Section (Grid) -->
+            <!-- Grid Section -->
             <div class="grid">
-                <!-- Box 1 -->
-                <div class="card slide-up" style="animation-delay: 0.5s;">
+                <div class="card slide-up">
                     <h2>📅 Upcoming Events</h2>
                     <div class="list-item"><strong>July 15:</strong> New Edition Esports Montage Drop</div>
                     <div class="list-item"><strong>August 5:</strong> Tournament Highlights Release</div>
                 </div>
 
-                <!-- Box 2 -->
-                <div class="card slide-up" style="animation-delay: 0.7s;">
+                <div class="card slide-up">
                     <h2>📢 Notice & Announcements</h2>
                     <div class="list-item">🔥 Now accepting freelance cinematic editing projects! DM to book.</div>
                     <div class="list-item">⚠️ Google Drive link updated with latest high-quality renders.</div>
@@ -67,7 +64,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="fade-in" style="animation-delay: 1s;">
+        <footer>
             <div class="footer-links">
                 <a onclick="openModal('about')">About Us</a>
                 <a onclick="openModal('help')">Help</a>
@@ -77,12 +74,12 @@
         </footer>
     </div>
 
-    <!-- Hidden Popup Box for Footer -->
+    <!-- Hidden Popup Box -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2 id="modal-title">Title</h2>
-            <p id="modal-body">Content goes here.</p>
+            <p id="modal-body"></p>
         </div>
     </div>
 
