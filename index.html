@@ -18,16 +18,17 @@
     <div class="bg-glow orb-1"></div>
     <div class="bg-glow orb-2"></div>
 
-    <div class="main-wrapper fade-in">
+    <div class="main-wrapper">
         
         <!-- Header Section -->
-        <header class="slide-up" style="animation-delay: 0.1s;">
-            <!-- Title chota kiya gaya hai -->
+        <header class="scroll-fade">
             <h1 class="glow-text">Edition Industries</h1>
             
-            <!-- Real Glitch Effect Text -->
+            <!-- COMBINED TYPING + GLITCH EFFECT -->
             <div class="owner-container">
-                <div class="glitch-text" data-text="OWNED BY RIYANSHU SINH">OWNED BY RIYANSHU SINH</div>
+                <div class="typing-wrapper">
+                    <div class="glitch-text" data-text="OWNED BY RIYANSHU SINH">OWNED BY RIYANSHU SINH</div>
+                </div>
             </div>
             
             <p class="tagline">Premium Video Editing & Cinematic Post-Production</p>
@@ -35,7 +36,7 @@
 
         <div class="container">
             <!-- Action Links Section -->
-            <div class="links-section slide-up" style="animation-delay: 0.2s;">
+            <div class="links-section scroll-fade" style="transition-delay: 0.1s;">
                 
                 <!-- Instagram Dropdown (Opens Upwards) -->
                 <div class="dropdown-container">
@@ -57,10 +58,10 @@
             </div>
 
             <!-- Content Grid Section -->
-            <div class="grid slide-up" style="animation-delay: 0.3s;">
+            <div class="grid">
                 
-                <!-- Card 1: Core Services (NEW) -->
-                <div class="card">
+                <!-- Card 1: Core Services -->
+                <div class="card scroll-fade">
                     <div class="card-header">
                         <i class="fas fa-layer-group card-icon text-primary"></i>
                         <h2>Core Services</h2>
@@ -71,33 +72,22 @@
                     <div class="list-item"><i class="fas fa-magic text-primary icon-space"></i> VFX & Motion Graphics</div>
                 </div>
 
-                <!-- Card 2: Software Arsenal (NEW) -->
-                <div class="card">
+                <!-- Card 2: Software Arsenal -->
+                <div class="card scroll-fade" style="transition-delay: 0.1s;">
                     <div class="card-header">
                         <i class="fas fa-laptop-code card-icon text-secondary"></i>
                         <h2>Software Arsenal</h2>
                     </div>
                     <div class="software-grid">
-                        <div class="software-item"><i class="fas fa-video"></i> Adobe Premiere Pro</div>
+                        <div class="software-item"><i class="fas fa-video"></i> Premiere Pro</div>
                         <div class="software-item"><i class="fas fa-meteor"></i> After Effects</div>
                         <div class="software-item"><i class="fas fa-adjust"></i> DaVinci Resolve</div>
                         <div class="software-item"><i class="fas fa-cube"></i> Blender 3D</div>
                     </div>
                 </div>
 
-                <!-- Card 3: Certifications (NEW - With Image) -->
-                <div class="card cert-card">
-                    <div class="card-header">
-                        <i class="fas fa-certificate card-icon text-gold"></i>
-                        <h2>Certifications & Awards</h2>
-                    </div>
-                    <!-- Yaha 'src' me apni image ka link daal dena -->
-                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800&h=400" alt="Masterclass Certification" class="cert-img">
-                    <div class="list-item"><strong>Advanced Cinematic Editing Masterclass</strong><br>Certified specialist in timeline management, pacing, and Hollywood-grade color correction.</div>
-                </div>
-
-                <!-- Card 4: Upcoming Events (Existing) -->
-                <div class="card">
+                <!-- Card 3: Upcoming Events & Notice -->
+                <div class="card scroll-fade">
                     <div class="card-header">
                         <i class="fas fa-calendar-alt card-icon text-primary"></i>
                         <h2>Upcoming Drops</h2>
@@ -112,11 +102,27 @@
                     <div class="list-item alert-item"><i class="fas fa-exclamation-circle icon-space"></i> Accepting freelance projects! DM to book.</div>
                 </div>
 
+                <!-- Card 4: Certifications (MOVED TO BOTTOM & MADE FULL WIDTH) -->
+                <div class="card cert-card scroll-fade" style="transition-delay: 0.2s;">
+                    <div class="cert-content">
+                        <div class="card-header">
+                            <i class="fas fa-certificate card-icon text-gold"></i>
+                            <h2>Certifications & Awards</h2>
+                        </div>
+                        <div class="list-item"><strong>Advanced Cinematic Editing Masterclass</strong><br>Certified specialist in timeline management, pacing, and Hollywood-grade color correction.</div>
+                        <div class="list-item"><strong>VFX & Motion Graphics Excellence 2024</strong><br>Awarded for outstanding visual effects in commercial projects.</div>
+                    </div>
+                    <!-- Yaha 'src' me apni certificate/award ki image link daal dena -->
+                    <div class="cert-image-container">
+                        <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800&h=400" alt="Masterclass Certification" class="cert-img">
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <!-- Footer Section -->
-        <footer>
+        <footer class="scroll-fade">
             <div class="footer-links">
                 <a onclick="openModal('about')">About Us</a>
                 <span class="dot">•</span>
